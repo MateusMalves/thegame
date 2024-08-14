@@ -1,0 +1,137 @@
+# Definições de personagens
+define e = Character("Eileen")
+define a = Character("Alex")
+
+# Início do jogo
+label start:
+    e "Olá, bem-vindo ao nosso jogo!"
+
+    # Primeiro diálogo com múltiplas escolhas
+    menu:
+        "Qual é o seu nome?":
+            "Meu nome é Alex.":
+                $ player_name = "Alex"
+                e "Prazer em conhecê-lo, Alex!"
+                jump encontro_alex
+
+            "Meu nome é Sam.":
+                $ player_name = "Sam"
+                e "Prazer em conhecê-lo, Sam!"
+                jump encontro_sam
+
+            "Prefiro não dizer.":
+                e "Entendo, sem problemas!"
+                jump encontro_anônimo
+
+label encontro_alex:
+    a "Oi Alex, o que você tem feito ultimamente?"
+
+    menu:
+        "Trabalhando muito.":
+            e "Você parece estar ocupado. Está tudo bem?"
+            jump trabalhar
+
+        "Estou de férias agora.":
+            e "Ótimo! O que você planejou fazer nas suas férias?"
+            jump ferias
+
+        "Nada de especial.":
+            e "Às vezes, não fazer nada é o melhor."
+            jump nada_especial
+
+label encontro_sam:
+    a "Oi Sam, como você está hoje?"
+
+    menu:
+        "Estou bem, obrigado.":
+            e "Que bom ouvir isso! Você tem planos para hoje?"
+            jump planos
+
+        "Estou um pouco cansado.":
+            e "Sinto muito por isso. Precisa de alguma ajuda?"
+            jump ajuda
+
+        "Não tenho certeza.":
+            e "Às vezes, é difícil decidir. Se precisar de conselho, estou aqui."
+            jump conselho
+
+label encontro_anônimo:
+    a "Tudo bem, não precisamos de um nome."
+
+    menu:
+        "Sim, tudo bem.":
+            e "Perfeito! Vamos continuar a conversa."
+            jump continuar
+
+        "Prefiro não conversar agora.":
+            e "Entendo, talvez em outra hora."
+            jump despedida
+
+# Ramos de diálogo específicos
+label trabalhar:
+    e "Você tem alguma ideia de como melhorar seu tempo livre?"
+    # Continue com mais opções ou avance para outro ramo
+    jump continuar
+
+label ferias:
+    e "Isso soa divertido! Alguma ideia do que fazer?"
+    # Continue com mais opções ou avance para outro ramo
+    jump continuar
+
+label nada_especial:
+    e "Às vezes, um dia tranquilo é o melhor."
+    # Continue com mais opções ou avance para outro ramo
+    jump continuar
+
+label planos:
+    e "Isso soa emocionante! O que você tem em mente?"
+    # Continue com mais opções ou avance para outro ramo
+    jump continuar
+
+label ajuda:
+    e "Se precisar de um descanso, estou aqui para ajudar."
+    # Continue com mais opções ou avance para outro ramo
+    jump continuar
+
+label conselho:
+    e "Se precisar de ajuda para decidir, sinta-se à vontade para perguntar."
+    # Continue com mais opções ou avance para outro ramo
+    jump continuar
+
+label continuar:
+    e "Vamos continuar com a conversa."
+    # Continue com mais opções ou avance para outro ramo
+    menu:
+        "Sobre o trabalho...":
+            e "Quer conversar sobre trabalho?"
+            # Continue com mais opções ou avance para outro ramo
+            jump trabalho
+
+        "Sobre o lazer...":
+            e "O que você gosta de fazer no seu tempo livre?"
+            # Continue com mais opções ou avance para outro ramo
+            jump lazer
+
+        "Sobre algo mais...":
+            e "Há algo mais em que você está interessado?"
+            # Continue com mais opções ou avance para outro ramo
+            jump algo_mais
+
+label trabalho:
+    e "Vamos falar sobre trabalho."
+    # Continue com mais opções ou avance para outro ramo
+    return
+
+label lazer:
+    e "Vamos falar sobre lazer."
+    # Continue com mais opções ou avance para outro ramo
+    return
+
+label algo_mais:
+    e "Vamos discutir outros assuntos."
+    # Continue com mais opções ou avance para outro ramo
+    return
+
+label despedida:
+    e "Adeus! Espero que nos encontremos novamente."
+    return
